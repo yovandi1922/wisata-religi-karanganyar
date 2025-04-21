@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wisata Religi Karanganyar - Candi Cetho</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      width: 100%;
+      scroll-behavior: smooth;
+      background-color: #000000;
+      
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('img/masjid.png');
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 60px;
+      color: white;
+      
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    .logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara gambar dan teks */
+  z-index: 1000; /* Supaya selalu di atas */
+}
+
+.logo img {
+  height: 70px; /* Ubah sesuai ukuran logomu */
+}
+    .logo22 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara gambar dan teks */
+  z-index: 1000; /* Supaya selalu di atas */
+}
+
+.logo22 img {
+  height: 70px; /* Ubah sesuai ukuran logomu */
+}
+.logo23 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara gambar dan teks */
+  z-index: 1000; /* Supaya selalu di atas */
+}
+
+.logo23 img {
+  height: 70px; /* Ubah sesuai ukuran logomu */
+}
+
+    .title {
+      position: absolute;
+      top: 100px;
+      left: 30px;
+      font-size: 56px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .slider-btn {
+  position: fixed; /* GANTI dari absolute ke fixed */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.6);
+  color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000; /* Tambahkan supaya selalu di atas */
+}
+
+
+    .slider-btn.left {
+      left: 20px;
+    }
+
+    .slider-btn.right {
+      right: 20px;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      bottom: 60px;
+      left: 30px;
+      z-index: 2;
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .scroll-btn:hover {
+      background-color: #ddd;
+    }
+
+    /* ================= DETAIL SECTION ================= */
+    .wisata {
+      position: relative;
+      height: 100vh;
+      background: url('img/masjid.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .info {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .content {
+      position: relative;
+      max-width: 830px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+    p {
+  font-size: 0.8rem;           /* Lebih enak dibaca dari 0.9rem */
+  margin-bottom: 50px;       /* Jarak antar paragraf */
+  line-height: 1.8;          /* Spasi antar baris */
+  text-align: justify;       /* Rata kanan-kiri seperti koran */
+  text-indent: 15px;         /* Paragraf masuk ke dalam */
+  color: #fff;               /* Warna teks (gelap tapi gak terlalu hitam) */
+  max-width: 600px;          /* Biar teks gak terlalu panjang */
+}
+
+    .btn {
+      background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+    }
+    .btn img {
+  width: 120px;
+  transition: transform 0.3s ease;
+}
+    .btn img:hover {
+      transform: scale(1.05);
+    }
+
+    .carousel {
+  position: absolute;
+  right: 10px;
+  bottom: 200px;
+  display: flex;
+  gap: 30px;
+  z-index: 2;
+
+  overflow-x: auto;         /* Biar bisa discroll horizontal */
+  max-width: 90vw;          /* Biar nggak kepanjangan, bisa disesuaikan */
+  padding-bottom: 10px;     /* Sedikit padding biar scroll bar nggak nempel */
+  scroll-snap-type: x mandatory; /* Snap efek saat scroll */
+}
+
+
+.carousel img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  scroll-snap-align: start; /* Biar snap per gambar */
+  flex: 0 0 auto;            /* Jangan biarkan gambar mengecil */
+}
+
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 2;
+    }
+
+    .nav-left {
+      left: 20px;
+    }
+
+    .nav-right {
+      right: 20px;
+    }
+
+    /* ================= MAP & FOOTER ================= */
+    footer {
+      background-color: #4a4a4a;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: relative;
+    }
+
+    /* Styling untuk tombol */
+.btn-container {
+  position: absolute;  /* atau relative, tergantung konteks */
+  top: 1395px;
+  left: 1070px;
+  z-index: 999;
+}
+
+.btn-map-image img {
+  width: 180px; /* Ubah ukuran sesuai keinginan */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-map-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding-top: 56.25%;
+      display: flex;
+      margin-bottom: -40px;
+     
+    }
+
+
+    .deskripsi-container {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.deskripsi-container.scrollable {
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: 10px;
+}
+
+
+    .map-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85%;
+  height: 70%;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%); /* Menarik iframe ke tengah */
+}
+    .next-button-container {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .btn-next, .btn-preveius {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-next:hover,
+    .btn-preveius:hover {
+      background-color: #45a049;
+    }
+
+    .deskripsi.pendek {
+      max-height: 90px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-toggle {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+
+    .deskripsi-container.scrollable {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.deskripsi-container.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* untuk menengahkan isi */
+  background-color: rgba(128, 128, 128, 0.3); /* abu-abu transparan */
+  padding: 10px 0;
+  gap: 10px;
+}
+.footer .social-media a {
+  position: relative;
+  left: -500px; /* geser kiri */
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+}
+
+.footer .social-media a i {
+  font-size: 18px;
+}
+.footer .copyright {
+  text-align: center;
+  color: white; /* atau warna lain sesuai kebutuhan */
+  font-size: 14px;
+}
+
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 1180px;
+  margin-top: -5px;
+}
+.footer .logo img {
+  height: 35px; /* Sesuaikan ukuran logo */
+}
+
+
+
+    /* ================= RESPONSIVE DESIGN ================= */
+
+
+/* Untuk layar tablet & laptop kecil */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+    left: 20px;
+    top: 80px;
+  }
+
+  .logo img,
+  .logo22 img,
+  .logo23 img {
+    height: 60px;
+  }
+
+  .carousel img {
+    width: 160px;
+    height: 220px;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Untuk layar HP besar (phablet) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .logo,
+  .logo22,
+  .logo23 {
+    position: static; /* Supaya tidak absolute */
+    margin-bottom: 20px;
+  }
+
+  .logo img,
+  .logo22 img, 
+  .logo23 img{
+    height: 50px;
+  }
+
+  .carousel {
+    position: static;
+    margin-top: 20px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    
+  }
+
+  .carousel img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .scroll-btn {
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+  }
+
+  .wisata {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .content {
+    position: static;
+    max-width: 100%;
+    z-index: 2;
+  }
+
+  p {
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+
+  .map-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .btn,
+  .btn-map {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Untuk layar HP kecil */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .carousel img {
+    width: 110px;
+    height: 150px;
+  }
+
+  .btn,
+  .btn-map {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  .scroll-btn {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
+
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Wisata Religi Karanganyar">
+    </div>
+    <h1 class="title">Masjid Agung Madaniyah</h1>
+    <div class="slider-btn left" id="prevBtn">&#10094;</div>
+    <div class="slider-btn right" id="nextBtn">&#10095;</div>
+
+  </section>
+
+  <!-- DETAIL SECTION -->
+  <section id="detail" class="wisata">
+    <div class="overlay"></div>
+    <div class="logo22">
+      <img src="img/logo.png" alt="Logo Wisata Religi Karanganyar">
+    </div>
+    <div class="content">
+      <h1>Masjid Agung <br>
+        Madaniyah </h1>
+      <div class="deskripsi-container">
+        <p id="deskripsi" class="deskripsi pendek">
+            Pada awalnya Masjid Agung Madaniyah Karanganyar didirikan pada tahun 1984 di kawasan yang saat itu masih berupa persawahan...
+        </p>
+      </div>
+      <button id="toggleDeskripsi" class="btn">
+        <img id="toggleIcon" src="img/selengkapnya.png" alt="Selengkapnya">
+      </button>
+      
+    </div>
+    
+
+
+    <div class="carousel">
+      <img src="img/masjid1.png" alt="Cetho 1">
+      <img src="img/masjid2.png" alt="Cetho 2">
+      <img src="img/masjid3.png" alt="Cetho 3">
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section>
+
+    <div class="map-container" style="margin-top: 20px;">
+      <div class="logo23">
+        <img src="img/logo23.png" alt="Logo Wisata Religi Karanganyar">
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.81519460124!2d110.93613647380204!3d-7.595082675052841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a187a84a29d3d%3A0x1a5a60659eb61e96!2sJl.%20Masjid%20Agung%20Madaniyah%2C%20Badran%20Asri%2C%20Cangakan%2C%20Kec.%20Karanganyar%2C%20Kabupaten%20Karanganyar%2C%20Jawa%20Tengah%2057716!5e0!3m2!1sid!2sid!4v1745048311160!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  
+    <!-- Tombol untuk membuka di Google Maps -->
+    <div class="btn-container" style="text-align: center; margin-top: 20px;">
+      <a href="https://www.google.com/maps/place/Jl.+Masjid+Agung+Madaniyah,+Badran+Asri,+Cangakan,+Kec.+Karanganyar,+Kabupaten+Karanganyar,+Jawa+Tengah+57716/@-7.5950827,110.9361365,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a187a84a29d3d:0x1a5a60659eb61e96!8m2!3d-7.595088!4d110.9387114!16s%2Fg%2F11t0m067yt?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D"
+         target="_blank" class="btn-map-image">
+        <img src="img/maps.png" alt="Buka di Google Maps">
+      </a>
+    </div>
+    
+    
+  </section>
+  
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+    <div class="logo">
+      <img src="img/logo.png" alt="Wisata Religi Karanganyar">
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; 2025 Wisata Religi Indonesia
+  </div>
+  </footer>
+  
+
+  <!-- SCRIPT -->
+  <script>
+    const nextButton = document.getElementById('nextBtn');
+const prevButton = document.getElementById('prevBtn');
+
+// Fungsi untuk pindah ke halaman berikutnya
+nextButton.addEventListener('click', function() {
+  window.location.href = "gua.html"; // Ganti dengan URL halaman selanjutnya
+});
+
+// Fungsi untuk pindah ke halaman sebelumnya
+prevButton.addEventListener('click', function() {
+  window.location.href = "astana.html"; // Ganti dengan URL halaman sebelumnya
+});
+const btn = document.getElementById('toggleDeskripsi');
+const icon = document.getElementById('toggleIcon');
+const deskripsi = document.getElementById('deskripsi');
+const deskripsiContainer = deskripsi.parentElement;
+
+const fullText = `
+  Pada awalnya Masjid Agung Madaniyah Karanganyar didirikan pada tahun 1984 di kawasan yang saat itu masih berupa persawahan, diwilayah barat Kabupaten Karanganyar. Masjid tersebut sudah berdiri kokoh kurang lebih selama 35 tahun.
+  <br><br>
+  Kemudian ditahun 2019, dilakukan pembangunan ulang Masjid Agung Madaniyah Karanganyar, yang alasannya adalah karena Kabupaten Karanganyar belum memiliki masjid agung yang megah sementara masjid lama sudah berusia tua. Pembangunan ulang dimulai pada tahun 2019 dan selesai pada 2021. Pada tanggal 11 Maret 2022, Masjid Agung Madaniyah Karanganyar mulai digunakan untuk umum dan jadi salah satu destinasi wisata juga. Masjid Agung Madaniyah Karanganyar memiliki bangunan yang arsitekturnya yang megah. Dengan adanya payung yang mirip di Masjid Nabawi Madinah,Pilar masjid yang bercorak krem keemasan, dan pintu yang dihiasi ornament kaligrafi berbahan tembaga dengan warna emas.
+
+`;
+
+
+const shortText = `Pada awalnya Masjid Agung Madaniyah Karanganyar didirikan pada tahun 1984 di kawasan yang saat itu masih berupa persawahan...`;
+
+let isExpanded = false;
+
+btn.addEventListener('click', function () {
+  if (isExpanded) {
+    deskripsi.innerHTML = shortText;
+    icon.src = 'img/selengkapnya.png';
+    icon.alt = 'Selengkapnya';
+    deskripsi.classList.add('pendek');
+    deskripsiContainer.classList.remove('scrollable');
+  } else {
+    deskripsi.innerHTML = fullText;
+    icon.src = 'img/sembunyikan.png';
+    icon.alt = 'Sembunyikan';
+    deskripsi.classList.remove('pendek');
+    deskripsiContainer.classList.add('scrollable');
+  }
+  isExpanded = !isExpanded;
+});
+
+  </script>
+
+</body>
+</html>
